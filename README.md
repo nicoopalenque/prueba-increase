@@ -1,24 +1,34 @@
-# README
+# Instalacion
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clonar repositorio
 
-Things you may want to cover:
+`$ git clone https://github.com/nicoopalenque/prueba-increase.git`
 
-* Ruby version
+Ir al repositorio clonado
 
-* System dependencies
+`$ cd prueba-increase`
 
-* Configuration
+Instalar gemas
 
-* Database creation
+`$ bundle install`
 
-* Database initialization
+Iniciar aplicacion
 
-* How to run the test suite
+`$ rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+Correr sidekiq para traer datos desde la fuente cada 10 minutos
 
-* Deployment instructions
+`$ bundle exec sidekiq`
 
-* ...
+# Uso
+
+Con postman puede hacer las siguientes consultas
+
+* GET /api/v1/transaction/
+
+* GET /api/v1/transaction/:id_header
+
+* GET /api/v1/client/:id_client
+
+# Doc
+[Prueba - Increase](https://docs.google.com/document/d/1QlrhIM07YZqd1kpEg4Y1aD8vjQzLF6AQMIG59LMXIY8/edit?usp=sharing)
