@@ -10,9 +10,9 @@ class ResponseTransaction
       end
     end
     c = TxtTransactionService.new.get_client(client['footer']['client'])
-    if c.body.length > 30
+    puts c.success? 
+    if c.success? 
       client['footer']['client'] = JSON.parse(c.body)
-      # puts client
       client
     end
   end

@@ -1,6 +1,5 @@
 class Api::V1::TransactionController < ApplicationController
   
-  # update transactions data
   def index
     generate_txt
     clients = BuildData.new().build

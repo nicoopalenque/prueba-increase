@@ -11,7 +11,6 @@ class TxtTransactionService
   end
 
   def get_client(id)
-    # puts "#{@url}clients/#{id}"
     HTTParty.get("#{@url}clients/#{id}", headers: { 'Authorization' => @token })
   end
 
