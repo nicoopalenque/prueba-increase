@@ -19,6 +19,8 @@ class ResponseTransaction
 
   def parse_transaction_response(client)
     resp = {}
+    resp['id_header'] = client['header']['id']
+    resp['payment_date'] = client['footer']['payment_date'].to_date
     resp['client'] = "#{client['footer']['client']['first_name']} #{client['footer']['client']['last_name']}"
     resp['email'] = client['footer']['client']['email']
     resp['country'] = client['footer']['client']['country'] 
@@ -26,11 +28,11 @@ class ResponseTransaction
     resp['zip_code'] = client['footer']['client']['zip_code']
     resp['phone'] = client['footer']['client']['phone']
     resp['currency'] = client['header']['currency'] == '000' ? 'ARS' : 'USD'
-    resp['received'] = "$ #{money_received(client['transaction'])}"
+    resp['total_amount'] = client['header']['total_amount']
+    resp['total_discount'] = client['header']['total_discount']
+    resp['total_with_discount'] = client['header']['total_with_discount']
+    resp['received'] = "$ #{money_received(client['transaction']) - client['header']['total_discount'].to_i}"
     resp['to_received'] ="$ #{money_to_received(client['transaction'])}"
-    resp['total_amount'] = "$ #{client['header']['total_amount'].sub(/^0+/, "")}"
-    resp['total_discount'] = "$ #{client['header']['total_discount'].sub(/^0+/, "")}"
-    resp['total_with_discount'] = "$ #{client['header']['total_with_discount'].sub(/^0+/, "")}"
     resp['transaction'] = parse_transaction_array(client['transaction'])
     resp['discount'] = parse_discount_array(client['discount'])
     resp
