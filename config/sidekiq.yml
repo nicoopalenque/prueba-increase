@@ -1,0 +1,5 @@
+:schedule:
+  transaction_worker:
+    cron: '0 */10 * * * *'
+    class: TransactionWorker
+    description: 'This job will be executed at every 10 minute'

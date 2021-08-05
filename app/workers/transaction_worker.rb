@@ -2,6 +2,6 @@ class TransactionWorker
   include Sidekiq::Worker
 
   def perform
-    # Do something
+    TxtTransactionService.new().generate_txt
   end
 end
