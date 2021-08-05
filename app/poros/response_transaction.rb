@@ -19,7 +19,7 @@ class ResponseTransaction
 
   def parse_transaction_response(client)
     resp = {}
-    resp['id_header'] = client['header']['id']
+    resp['id_pago'] = client['header']['id']
     resp['payment_date'] = client['footer']['payment_date'].to_date
     resp['client'] = "#{client['footer']['client']['first_name']} #{client['footer']['client']['last_name']}"
     resp['email'] = client['footer']['client']['email']
