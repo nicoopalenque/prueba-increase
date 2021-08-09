@@ -22,7 +22,8 @@ Correr sidekiq para traer datos desde la fuente cada 10 minutos
 
 # Uso
 
-Con postman puede hacer las siguientes consultas
+Con postman puede hacer las siguientes consultas.
+Tanto id_header y id_client se los obtiene desde el primer endpoint (/api/v1/transaction/)
 
 * GET /api/v1/transaction/
 
